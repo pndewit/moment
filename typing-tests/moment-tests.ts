@@ -40,6 +40,13 @@ moment(day.toISOString(), [moment.ISO_8601]);
 moment(day.toISOString(), [moment.ISO_8601], true);
 moment(day.toISOString(), [moment.ISO_8601], "en", true);
 
+moment(day.toUTCString(), moment.RFC_2822);
+moment(day.toUTCString(), moment.RFC_2822, true);
+moment(day.toUTCString(), moment.RFC_2822, "en", true);
+moment(day.toUTCString(), [moment.RFC_2822]);
+moment(day.toUTCString(), [moment.RFC_2822], true);
+moment(day.toUTCString(), [moment.RFC_2822], "en", true);
+
 var a = moment([2012]);
 var b = moment(a);
 a.year(2000);
@@ -240,6 +247,16 @@ moment.duration({
     months: 2,
     years: 2
 });
+moment.duration({
+    s: 2,
+    m: 2,
+    h: 2,
+    d: 2,
+    w: 2,
+    M: 2,
+    y: 2,
+});
+moment.duration(1, "minute").clone();
 moment.duration(1, "minutes").humanize();
 moment.duration(500).milliseconds();
 moment.duration(500).asMilliseconds();

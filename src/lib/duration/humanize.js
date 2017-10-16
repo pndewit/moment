@@ -69,10 +69,17 @@ export function getSetRelativeTimeThreshold (threshold, limit) {
         secondsThresholdChanged = true;
     }
     thresholds[threshold] = limit;
+    if (threshold === 's') {
+        thresholds.ss = limit - 1;
+    }
     return true;
 }
 
 export function humanize (withSuffix) {
+    if (!this.isValid()) {
+        return this.localeData().invalidDate();
+    }
+
     var locale = this.localeData();
     var output = relativeTime(this, !withSuffix, locale);
 
